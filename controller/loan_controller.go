@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ✅ Create Loan
+// Create Loan
 func CreateLoan(c *gin.Context) {
 	var loan models.Loan
 
@@ -38,7 +38,7 @@ func CreateLoan(c *gin.Context) {
 	c.JSON(http.StatusCreated, loan)
 }
 
-// ✅ Get All Loans
+// Get All Loans
 func GetLoans(c *gin.Context) {
 	var loans []models.Loan
 
@@ -50,7 +50,7 @@ func GetLoans(c *gin.Context) {
 	c.JSON(http.StatusOK, loans)
 }
 
-// ✅ Get Loan By ID
+//  Get Loan By ID
 func GetLoanByID(c *gin.Context) {
 	id := c.Param("id")
 
@@ -64,7 +64,7 @@ func GetLoanByID(c *gin.Context) {
 	c.JSON(http.StatusOK, loan)
 }
 
-// ✅ Calculate Yearly Interest
+//  Calculate Yearly Interest
 func CalculateInterest(c *gin.Context) {
 	id := c.Param("id")
 
@@ -90,7 +90,7 @@ func CalculateInterest(c *gin.Context) {
 	})
 }
 
-// ✅ Repay Loan (Atomic Transaction)
+//  Repay Loan (Atomic Transaction)
 func RepayLoan(c *gin.Context) {
 	id := c.Param("id")
 
