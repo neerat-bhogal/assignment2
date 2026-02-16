@@ -8,12 +8,12 @@ import (
 
 func main() {
 
-	// Step 1: Connect to database
+	// Connect to database
 	config.ConnectDatabase()
 
 	log.Println("Running database migrations...")
 
-	// Step 2: Run AutoMigrate
+	// Ran AutoMigrate
 	err := config.DB.AutoMigrate(
 		&models.Bank{},
 		&models.Branch{},
@@ -24,8 +24,8 @@ func main() {
 	)
 
 	if err != nil {
-		log.Fatal("❌ Migration failed:", err)
+		log.Fatal("Migration failed:", err)
 	}
 
-	log.Println("✅ Database migrated successfully")
+	log.Println(" Database migrated successfully")
 }
