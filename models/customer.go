@@ -8,9 +8,9 @@ type Customer struct {
 	Email string
 	Phone string
 
-	// One-to-Many (Customer -> Loans)
+	// One-to-Many type
 	Loans []Loan
 
-	// Many-to-Many (Customer <-> Accounts)
+	// Many-to-Many type for account
 	Accounts []Account `gorm:"many2many:account_customers;"`
 }
