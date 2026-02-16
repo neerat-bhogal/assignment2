@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ✅ Open Account (Primary Holder)
+// here Opened Account mainly Primary Holder
 func CreateAccount(c *gin.Context) {
 	var account models.Account
 
@@ -43,7 +43,7 @@ func CreateAccount(c *gin.Context) {
 	c.JSON(http.StatusCreated, account)
 }
 
-// ✅ Add Joint Holder
+// Added Joint Holder for request
 func AddJointHolder(c *gin.Context) {
 	accountID := c.Param("id")
 
@@ -79,7 +79,7 @@ func AddJointHolder(c *gin.Context) {
 	c.JSON(http.StatusOK, account)
 }
 
-// ✅ Get Account Details
+// to Get Account Details
 func GetAccount(c *gin.Context) {
 	id := c.Param("id")
 
@@ -98,7 +98,7 @@ func GetAccount(c *gin.Context) {
 	c.JSON(http.StatusOK, account)
 }
 
-// ✅ Get All Accounts of Customer
+// to Get All Accounts of Customer
 func GetCustomerAccounts(c *gin.Context) {
 	id := c.Param("customer_id")
 
@@ -115,7 +115,7 @@ func GetCustomerAccounts(c *gin.Context) {
 	c.JSON(http.StatusOK, accounts)
 }
 
-// ✅ Close Account
+// Close account
 func CloseAccount(c *gin.Context) {
 	id := c.Param("id")
 
