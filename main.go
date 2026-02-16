@@ -9,10 +9,10 @@ import (
 
 func main() {
 
-	// Connect DB
+	// here Connect DB
 	config.ConnectDatabase()
 
-	// Run migrations
+	// then Run migrations
 	// Config.Migrate()
 
 	router := gin.Default()
