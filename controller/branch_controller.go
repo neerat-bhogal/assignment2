@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ✅ Create Branch
+// Creating Branch
 func CreateBranch(c *gin.Context) {
 	var branch models.Branch
 
@@ -34,7 +34,7 @@ func CreateBranch(c *gin.Context) {
 	c.JSON(http.StatusCreated, branch)
 }
 
-// ✅ Get All Branches
+// gettig all Branches
 func GetBranches(c *gin.Context) {
 	var branches []models.Branch
 
@@ -46,7 +46,7 @@ func GetBranches(c *gin.Context) {
 	c.JSON(http.StatusOK, branches)
 }
 
-// ✅ Get Branch By ID
+// geting branch by ID
 func GetBranchByID(c *gin.Context) {
 	id := c.Param("id")
 
@@ -70,7 +70,7 @@ func GetBranchByID(c *gin.Context) {
 	c.JSON(http.StatusOK, branch)
 }
 
-// ✅ Update Branch
+// Update Branch
 func UpdateBranch(c *gin.Context) {
 	id := c.Param("id")
 
@@ -97,7 +97,7 @@ func UpdateBranch(c *gin.Context) {
 	c.JSON(http.StatusOK, branch)
 }
 
-// ✅ Delete Branch
+//  Delete Branch
 func DeleteBranch(c *gin.Context) {
 	id := c.Param("id")
 
