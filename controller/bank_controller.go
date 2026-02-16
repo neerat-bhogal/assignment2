@@ -11,7 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ✅ Create Bank
+// to Create bank
 func CreateBank(c *gin.Context) {
 	var bank models.Bank
 	fmt.Println("here")
@@ -33,7 +33,7 @@ func CreateBank(c *gin.Context) {
 	c.JSON(http.StatusCreated, bank)
 }
 
-// ✅ Get All Banks
+// then Get all banks
 func GetBanks(c *gin.Context) {
 	var banks []models.Bank
 
@@ -48,7 +48,7 @@ func GetBanks(c *gin.Context) {
 	c.JSON(http.StatusOK, banks)
 }
 
-// ✅ Get Bank By ID
+// then Get bank by ID type
 func GetBankByID(c *gin.Context) {
 	id := c.Param("id")
 
@@ -72,7 +72,7 @@ func GetBankByID(c *gin.Context) {
 	c.JSON(http.StatusOK, bank)
 }
 
-// ✅ Update Bank
+//  Update Bank
 func UpdateBank(c *gin.Context) {
 	id := c.Param("id")
 
@@ -101,7 +101,7 @@ func UpdateBank(c *gin.Context) {
 	c.JSON(http.StatusOK, bank)
 }
 
-// ✅ Delete Bank
+// Delete Bank
 func DeleteBank(c *gin.Context) {
 	id := c.Param("id")
 
