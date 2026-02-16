@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ✅ Deposit Money
+//  Deposit Money
 func Deposit(c *gin.Context) {
 	var input struct {
 		AccountID uint    `json:"account_id"`
@@ -64,7 +64,7 @@ func Deposit(c *gin.Context) {
 	})
 }
 
-// ✅ Withdraw Money
+//  Withdraw Money
 func Withdraw(c *gin.Context) {
 	var input struct {
 		AccountID uint    `json:"account_id"`
@@ -124,7 +124,7 @@ func Withdraw(c *gin.Context) {
 	})
 }
 
-// ✅ Get All Transactions
+// Get All Transactions
 func GetTransactions(c *gin.Context) {
 	var transactions []models.Transaction
 
@@ -136,7 +136,7 @@ func GetTransactions(c *gin.Context) {
 	c.JSON(http.StatusOK, transactions)
 }
 
-// ✅ Get Transactions By Account
+//  Get Transactions By Account
 func GetTransactionsByAccount(c *gin.Context) {
 	id := c.Param("account_id")
 
