@@ -45,6 +45,7 @@ func SetupRoutes(router *gin.Engine) {
 		accounts := api.Group("/accounts")
 		{
 			accounts.POST("/", controller.CreateAccount)
+			accounts.GET("/:id/transactions", controller.GetAccountWithTransactions)
 			accounts.GET("/:id", controller.GetAccount)
 			accounts.PUT("/:id/joint", controller.AddJointHolder)
 			accounts.PUT("/:id/close", controller.CloseAccount)
@@ -67,6 +68,7 @@ func SetupRoutes(router *gin.Engine) {
 			transactions.POST("/withdraw", controller.Withdraw)
 			transactions.GET("/", controller.GetTransactions)
 			transactions.GET("/account/:account_id", controller.GetTransactionsByAccount)
+			// transactions.GET("/transactionAccount", controller.GetTransactionWithAccount)
 		}
 	}
 }

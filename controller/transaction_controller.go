@@ -158,3 +158,10 @@ func GetTransactionsByAccount(c *gin.Context) {
 
 	c.JSON(http.StatusOK, transactions)
 }
+
+// // to get all the transactions and their account
+// func GetTransactionWithAccount(c *gin.Context) {
+// 	var transactions []models.Transaction
+// 	if err := config.DB.Preload
+
+// }

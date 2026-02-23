@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 
 	"bankingSystem/config"
 	"bankingSystem/models"
@@ -138,4 +139,55 @@ func CloseAccount(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"message": "Account closed successfully"})
+}
+
+// List all accounts with their transactions (nested structure)
+func GetAccountWithTransactions(c *gin.Context) {
+
+	idParam := c.Param("id")
+
+	id, err := strconv.Atoi(idParam)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID"})
+		return
+	}
+
+	query := `
+		SELECT 
+			a.id AS account_id,
+			t.id,
+			t.type,
+			t.amount
+		FROM accounts a
+		LEFT JOIN transactions t 
+			ON a.id = t.account_id
+		WHERE a.id = $1
+	`
+
+	rows, err := config.DB.Raw(query, id).Rows()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	defer rows.Close()
+
+	var response models.AccountWithTransactionsResponse
+	response.AccountID = uint(id)
+
+	for rows.Next() {
+		var tx models.TransactionResponse
+		var accID uint
+
+		err := rows.Scan(&accID, &tx.ID, &tx.Type, &tx.Amount)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		if tx.ID != 0 {
+			response.Transactions = append(response.Transactions, tx)
+		}
+	}
+
+	c.JSON(http.StatusOK, response)
 }

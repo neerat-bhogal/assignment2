@@ -16,4 +16,6 @@ type Account struct {
 
 	SecondaryCustomerID *uint
 	SecondaryCustomer   *Customer
+
+	Transactions []Transaction `gorm:"foreignKey:AccountID"`
 }
